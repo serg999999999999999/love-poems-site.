@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дорогая моя любимая</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            background-color: #e0f7fa;
+        }
+        .heart-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.8;
+        }
+        .content {
+            margin: 20px;
+            z-index: 1;
+        }
+        .heart-button {
+            font-size: 36px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            margin-top: 20px;
+        }
+        .poem {
+            display: none;
+            margin: 20px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+        }
+        .arrow {
+            font-size: 24px;
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="heart-background" id="hearts">
+    <!-- JavaScript will generate hearts here -->
+</div>
+
+<div class="content" id="start">
+    <h1 style="font-family: 'Georgia', serif; color: #0077b6;">Дорогая моя любимая Диар Рилли Лав Анна Зюзя Принцесска</h1>
+    <p style="font-family: 'Courier New', monospace;">Нажми сюда</p>
+    <p class="arrow">➡️</p>
+    <button class="heart-button" style="color: #e63946;" onclick="showPoem1()">❤️</button>
+</div>
+
+<div class="poem" id="poem1">
+    <p style="font-family: 'Times New Roman', Times, serif;">Ни сон ни радостные отвлеченья<br>
+    ни сладость вкусности и никакая интернет игра<br>
+    мне не дадут такого наслождения<br>
+    как быть с тобою лишь всегда</p>
+    <button class="heart-button" style="color: #ff6347;" onclick="showPoem2()">💙 Нажми на меня</button>
+</div>
+
+<div class="poem" id="poem2">
+    <p style="font-family: 'Arial', sans-serif;">ты в жизнь мою пришла без рассуждения<br>
+    оставив в прошлом я свои дела<br>
+    и нет важнее в жизни развлечений<br>
+    чем быть и мне тебя любить всегда</p>
+    <button class="heart-button" style="color: #ff69b4;" onclick="showPoem3()">💛 Нажми на меня</button>
+</div>
+
+<div class="poem" id="poem3">
+    <p style="font-family: 'Verdana', sans-serif;">раз ты читаешь си стихотворенья<br>
+    то значит жизнь еще полна<br>
+    моментов и возможностей свиршенья<br>
+    и помни ты здесь ни одна</p>
+    <button class="heart-button" style="color: #20b2aa;" onclick="showPoem4()">💚 Нажми на меня</button>
+</div>
+
+<div class="poem" id="poem4">
+    <p style="font-family: 'Comic Sans MS', cursive;">Пусть день сегодня принесет ти наслаждения<br>
+    эмоции что будут сил тебе дарить<br>
+    а я вновь напишу стихотворения<br>
+    и буду дальше я тебя любить<br>
+    <br>С любовью Твой Dear Love )</p>
+</div>
+
+<script>
+    function showPoem1() {
+        document.getElementById('start').style.display = 'none';
+        document.getElementById('poem1').style.display = 'block';
+        scatterHearts();
+    }
+    function showPoem2() {
+        document.getElementById('poem1').style.display = 'none';
+        document.getElementById('poem2').style.display = 'block';
+        scatterHearts();
+    }
+    function showPoem3() {
+        document.getElementById('poem2').style.display = 'none';
+        document.getElementById('poem3').style.display = 'block';
+        scatterHearts();
+    }
+    function showPoem4() {
+        document.getElementById('poem3').style.display = 'none';
+        document.getElementById('poem4').style.display = 'block';
+        scatterHearts();
+    }
+
+    function scatterHearts() {
+        const heartContainer = document.getElementById('hearts');
+        heartContainer.innerHTML = '';
+        for (let i = 0; i < 50; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = Math.random() * 100 + 'vh';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            heartContainer.appendChild(heart);
+        }
+    }
+</script>
+
+</body>
+</html>
